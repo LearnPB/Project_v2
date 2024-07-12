@@ -28,6 +28,9 @@ export const GET = (({ url }) => {
   return json({ players });
 }) satisfies RequestHandler;
 
+
+
+
 // export const GET = (({ url }) => {
 //   const searchOnly = url.searchParams.get('searchTerm')?.toString();
 //   let players: Player[] = [];
