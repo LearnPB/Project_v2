@@ -15,7 +15,7 @@
 		if (!input) return [];
 
 		try {
-			const response = await fetch('/ownk/dropdown/countries', {
+			const response = await fetch('/ownk/dropdown', {
 				method: 'POST',
 				body: JSON.stringify({ search: input })
 			});
