@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import type { RequestHandler } from './countries/$types';
+import type { RequestHandler } from './$types';
 import { COUNTRIES } from '../countries';
 
 // const COUNTRIES = [

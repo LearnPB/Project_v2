@@ -6,4 +6,5 @@
 <a href="/playersjson">JSON</a>
 <a href="/sports">Sports</a>
 <a href="/ownk">Ownk</a>
+<a href="/multi">Multi</a>
 <slot />
