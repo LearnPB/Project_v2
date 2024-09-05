@@ -2,14 +2,19 @@
 	import { scaleLinear } from 'd3';
 	import { extent, max } from 'd3';
 	import { line } from 'd3';
-	import { draw, fade } from 'svelte/transition';
 	import { format } from 'd3';
+	import { draw, fade } from 'svelte/transition';
 
 	import AxisVertical from './AxisVertical.svelte';
 	import AxisHorizontal from './AxisHorizontal.svelte';
 	import GridRows from './GridRows.svelte';
 
-	export let data: any[];
+	interface DataItem {
+		[key: string]: number;
+	}
+
+	export let data: DataItem[];
+
 	export let width: number;
 	export let height: number;
 	export let x: string;
@@ -41,11 +46,11 @@
 		.defined((d) => getY(d) !== null);
 
 	//_ tooltip
-	let tooltip = {};
+	let tooltip: { x?: number; y?: number; data?: number | null } = {};
 
-	function handleMouse(event) {
+	function handleMouse(event: MouseEvent) {
 		const tx = Math.min(xScale.domain()[1], Math.round(xScale.invert(event.offsetX - margin.left)));
-		const ty = getY(data.find((d) => getX(d) === tx));
+		const ty = getY(data.find((d) => getX(d) === tx)!);
 
 		tooltip.x = xScale(tx);
 		tooltip.y = yScale(ty);
